@@ -46,3 +46,4 @@ examples/e2e_cli/crypto-config/*
 .tox/
 # vscode settings
 .vscode
+maven-data.xml
