@@ -87,7 +87,7 @@ push() {
     pull_Platform_All
 # push docker images
     echo "------> push docker images"
-    docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD
+    #docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD
     for MARCH in amd64 s390x; do
         for IMAGES in ${IMAGES_LIST[*]}; do
 	echo "-------> $IMAGES"
