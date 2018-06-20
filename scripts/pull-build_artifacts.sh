@@ -90,7 +90,8 @@ push() {
     docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD
     for MARCH in amd64 s390x; do
         for IMAGES in ${IMAGES_LIST[*]}; do
-            docker push $ORG_NAME-$IMAGES:$MARCH-$RELEASE_VERSION
+	echo "-------> $IMAGES"
+           # docker push $ORG_NAME-$IMAGES:$MARCH-$RELEASE_VERSION
         done
     done
 }
