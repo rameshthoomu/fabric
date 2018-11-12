@@ -125,12 +125,10 @@ help-docs: native
 # Pull thirdparty docker images based on the latest baseimage release version
 .PHONY: docker-thirdparty
 docker-thirdparty:
-	docker pull $(BASE_DOCKER_NS)/fabric-couchdb:$(BASE_DOCKER_TAG)
-	docker tag $(BASE_DOCKER_NS)/fabric-couchdb:$(BASE_DOCKER_TAG) $(DOCKER_NS)/fabric-couchdb
-	docker pull $(BASE_DOCKER_NS)/fabric-zookeeper:$(BASE_DOCKER_TAG)
-	docker tag $(BASE_DOCKER_NS)/fabric-zookeeper:$(BASE_DOCKER_TAG) $(DOCKER_NS)/fabric-zookeeper
-	docker pull $(BASE_DOCKER_NS)/fabric-kafka:$(BASE_DOCKER_TAG)
-	docker tag $(BASE_DOCKER_NS)/fabric-kafka:$(BASE_DOCKER_TAG) $(DOCKER_NS)/fabric-kafka
+	for IMAGE in couchdb kafka zookeeper; do \
+		docker pull $(BASE_DOCKER_NS)/fabric-$$IMAGE:$(BASE_DOCKER_TAG); \
+		docker tag $(BASE_DOCKER_NS)/fabric-$$IMAGE:$(BASE_DOCKER_TAG) $(DOCKER_NS)/fabric-$$IMAGE; \
+	done
 
 .PHONY: spelling
 spelling:
@@ -198,7 +196,7 @@ test-cmd:
 
 docker: $(patsubst %,$(BUILD_DIR)/image/%/$(DUMMY), $(IMAGES))
 
-native: peer orderer configtxgen cryptogen idemixgen configtxlator discover
+native: $(RELEASE_PKGS)
 
 linter: check-deps buildenv
 	@echo "LINT: Running code checks.."
