@@ -1,3 +1,7 @@
+# Hyperledger Fabric [![join the chat][rocketchat-image]][rocketchat-url]
+
+[rocketchat-url]: https://chat.hyperledger.org/channel/fabric
+[rocketchat-image]: https://open.rocket.chat/images/join-chat.svg
 
 **Note:** This is a **read-only mirror** of the formal [Gerrit](https://gerrit.hyperledger.org/r/#/admin/projects/fabric) repository,
 where active development is ongoing. Issue tracking is handled in [Jira](https://jira.hyperledger.org/secure/Dashboard.jspa?selectPageId=10104)
@@ -11,8 +15,7 @@ the [Hyperledger Project Lifecycle document](https://wiki.hyperledger.org/commun
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/955/badge)](https://bestpractices.coreinfrastructure.org/projects/955)
 [![Go Report Card](https://goreportcard.com/badge/github.com/hyperledger/fabric)](https://goreportcard.com/report/github.com/hyperledger/fabric)
 [![GoDoc](https://godoc.org/github.com/hyperledger/fabric?status.svg)](https://godoc.org/github.com/hyperledger/fabric)
-[![Documentation Status](https://readthedocs.org/projects/hyperledger-fabric/badge/?version=latest)](http://hyperledger-fabric.readthedocs.io/en/latest/?badge=latest)
-
+[![Documentation Status](https://readthedocs.org/projects/hyperledger-fabric/badge/?version=release-1.2)](http://hyperledger-fabric.readthedocs.io/en/release-1.2/?badge=release-1.2)
 ## Hyperledger Fabric
 
 Hyperledger Fabric is a platform for distributed ledger solutions, underpinned
