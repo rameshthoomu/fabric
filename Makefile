@@ -125,12 +125,12 @@ help-docs: native
 # Pull thirdparty docker images based on the latest baseimage release version
 .PHONY: docker-thirdparty
 docker-thirdparty:
-	docker pull $(BASE_DOCKER_NS)/fabric-couchdb:$(BASE_DOCKER_TAG)
-	docker tag $(BASE_DOCKER_NS)/fabric-couchdb:$(BASE_DOCKER_TAG) $(DOCKER_NS)/fabric-couchdb
-	docker pull $(BASE_DOCKER_NS)/fabric-zookeeper:$(BASE_DOCKER_TAG)
-	docker tag $(BASE_DOCKER_NS)/fabric-zookeeper:$(BASE_DOCKER_TAG) $(DOCKER_NS)/fabric-zookeeper
-	docker pull $(BASE_DOCKER_NS)/fabric-kafka:$(BASE_DOCKER_TAG)
-	docker tag $(BASE_DOCKER_NS)/fabric-kafka:$(BASE_DOCKER_TAG) $(DOCKER_NS)/fabric-kafka
+	docker pull rameshthoomu/fabric-couchdb:$(BASE_DOCKER_TAG1)
+	docker tag rameshthoomu/fabric-couchdb:$(BASE_DOCKER_TAG1) $(DOCKER_NS)/fabric-couchdb
+	docker pull rameshthoomu/fabric-zookeeper:$(BASE_DOCKER_TAG1)
+	docker tag rameshthoomu/fabric-zookeeper:$(BASE_DOCKER_TAG1) $(DOCKER_NS)/fabric-zookeeper
+	docker pull rameshthoomu/fabric-kafka:$(BASE_DOCKER_TAG1)
+	docker tag rameshthoomu/fabric-kafka:$(BASE_DOCKER_TAG1) $(DOCKER_NS)/fabric-kafka
 
 .PHONY: spelling
 spelling:
@@ -235,7 +235,7 @@ $(BUILD_DIR)/docker/bin/%: $(PROJECT_FILES)
 	@$(DRUN) \
 		-v $(abspath $(BUILD_DIR)/docker/bin):/opt/gopath/bin \
 		-v $(abspath $(BUILD_DIR)/docker/$(TARGET)/pkg):/opt/gopath/pkg \
-		$(BASE_DOCKER_NS)/fabric-baseimage:$(BASE_DOCKER_TAG) \
+		$(BASE_DOCKER_NS)/fabric-baseimage:amd64-0.4.18 \
 		go install -tags "$(GO_TAGS)" -ldflags "$(DOCKER_GO_LDFLAGS)" $(pkgmap.$(@F))
 	@touch $@
 
